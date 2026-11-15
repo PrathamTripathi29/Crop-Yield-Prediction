@@ -11,7 +11,7 @@ ee.Initialize(project=EE_PROJECT)
 
 # First run with SMOKE_TEST = True: pulls 2019 only and prints the columns
 # so you can check everything works. Then set it to False for the full pull.
-SMOKE_TEST = True
+SMOKE_TEST = False
 YEARS = range(2003, 2023)
 CACHE_DIR = "feature_cache_v2"
 OUTPUT_CSV = "mp_feature_table_v2.csv"
@@ -219,7 +219,7 @@ def build_season_year(year, season, soil_df):
         pull(fapar_features, year, season, 500),
         pull(chirps_features, year, season, 5566),
         pull(era5_features, year, season, 11132),
-        pull(gldas_features, year, season, 27830),
+        pull(gldas_features, year, season, 5000),
     ]
     df = parts[0]
     for part in parts[1:]:
@@ -255,6 +255,7 @@ if __name__ == "__main__":
         print("\nFirst row:\n", table.iloc[0])
         nulls = table.isna().sum()
         print("\nColumns with nulls:\n", nulls[nulls > 0])
+        print(table[table.rzsm_mean.isna()].district.unique())
         raise SystemExit("\nSmoke test finished. If the columns look right, set "
                          "SMOKE_TEST = False and run again for the full pull.")
 

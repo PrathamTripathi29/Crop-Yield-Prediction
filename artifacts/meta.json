@@ -1,0 +1,200 @@
+{
+  "data_file": "model_training_data_v2.csv",
+  "last_year": 2022,
+  "max_horizon": 5,
+  "yield_unit": "t/ha",
+  "crops": {
+    "Soybean": {
+      "season": "kharif",
+      "method": "mean",
+      "method_label": "District average (each district's mean yield over the training years)",
+      "districts": 37,
+      "min_area_ha": 10000,
+      "mean_yield": 0.9633773584905662,
+      "slope_per_year": 0.0,
+      "intervals": {
+        "1": {
+          "low_offset": -0.5493409090909089,
+          "high_offset": 0.4245982905982906,
+          "rows": 416
+        },
+        "2": {
+          "low_offset": -0.6026166666666665,
+          "high_offset": 0.4558638888888889,
+          "rows": 380
+        },
+        "3": {
+          "low_offset": -0.6150133333333332,
+          "high_offset": 0.4403272058823529,
+          "rows": 344
+        },
+        "4": {
+          "low_offset": -0.5727952380952381,
+          "high_offset": 0.4773600000000005,
+          "rows": 307
+        },
+        "5": {
+          "low_offset": -0.6035,
+          "high_offset": 0.38188888888888894,
+          "rows": 271
+        }
+      },
+      "backtest_one_year_ahead": {
+        "years": "2011-2022",
+        "chosen_baseline": {
+          "name": "mean",
+          "rmse": 0.41118257369060435,
+          "mae": 0.3221542781065559,
+          "r2": -0.09534209408634542,
+          "accuracy_pct": 51.30635404247329,
+          "rows": 416
+        },
+        "other_baseline": {
+          "name": "trend",
+          "rmse": 0.42672097159571964,
+          "mae": 0.3375165985297107,
+          "r2": -0.1796912310611567,
+          "accuracy_pct": 47.06273964008963,
+          "rows": 416
+        },
+        "satellite_model": {
+          "name": "Extra Trees",
+          "feature_set": "core+stage",
+          "rmse": 0.4254286764438468,
+          "mae": 0.3399064309326834,
+          "r2": -0.17255682275153994,
+          "accuracy_pct": 46.46134493366818,
+          "rows": 416
+        }
+      }
+    },
+    "Wheat": {
+      "season": "rabi",
+      "method": "trend",
+      "method_label": "District trend (each district's own level plus one common yearly slope)",
+      "districts": 51,
+      "min_area_ha": 0,
+      "mean_yield": 2.596591,
+      "slope_per_year": 0.12326158925143954,
+      "intervals": {
+        "1": {
+          "low_offset": -0.5980827999564969,
+          "high_offset": 0.958414356435644,
+          "rows": 610
+        },
+        "2": {
+          "low_offset": -0.6112757625467012,
+          "high_offset": 1.0019229248560977,
+          "rows": 560
+        },
+        "3": {
+          "low_offset": -0.6327842413617911,
+          "high_offset": 0.9120430348215472,
+          "rows": 510
+        },
+        "4": {
+          "low_offset": -0.6349930456695837,
+          "high_offset": 1.097095341034103,
+          "rows": 459
+        },
+        "5": {
+          "low_offset": -0.6660189947288275,
+          "high_offset": 1.2443797529313234,
+          "rows": 408
+        }
+      },
+      "backtest_one_year_ahead": {
+        "years": "2011-2022",
+        "chosen_baseline": {
+          "name": "trend",
+          "rmse": 0.6756342477716384,
+          "mae": 0.5173283871756142,
+          "r2": 0.4500996882848304,
+          "accuracy_pct": 81.33105310660939,
+          "rows": 610
+        },
+        "other_baseline": {
+          "name": "mean",
+          "rmse": 1.1385885787510004,
+          "mae": 1.0031330689397144,
+          "r2": -0.5616880980764694,
+          "accuracy_pct": 67.79487771474689,
+          "rows": 610
+        },
+        "satellite_model": {
+          "name": "Extra Trees",
+          "feature_set": "core",
+          "rmse": 0.6905547431269516,
+          "mae": 0.5354229561836735,
+          "r2": 0.4255438549260482,
+          "accuracy_pct": 80.80160458165892,
+          "rows": 610
+        }
+      }
+    },
+    "Gram": {
+      "season": "rabi",
+      "method": "trend",
+      "method_label": "District trend (each district's own level plus one common yearly slope)",
+      "districts": 50,
+      "min_area_ha": 5000,
+      "mean_yield": 1.1590302049622438,
+      "slope_per_year": 0.04520026789378009,
+      "intervals": {
+        "1": {
+          "low_offset": -0.29415548218943854,
+          "high_offset": 0.5278246541040659,
+          "rows": 571
+        },
+        "2": {
+          "low_offset": -0.2868794135979722,
+          "high_offset": 0.6010011888008487,
+          "rows": 525
+        },
+        "3": {
+          "low_offset": -0.2608048083479356,
+          "high_offset": 0.6365942864856937,
+          "rows": 479
+        },
+        "4": {
+          "low_offset": -0.1685287833418774,
+          "high_offset": 0.698231548996566,
+          "rows": 433
+        },
+        "5": {
+          "low_offset": -0.04673522249314039,
+          "high_offset": 0.7344522900470412,
+          "rows": 383
+        }
+      },
+      "backtest_one_year_ahead": {
+        "years": "2011-2022",
+        "chosen_baseline": {
+          "name": "trend",
+          "rmse": 0.389352783963409,
+          "mae": 0.28839517391269953,
+          "r2": 0.23637109583966198,
+          "accuracy_pct": 76.06341585404158,
+          "rows": 571
+        },
+        "other_baseline": {
+          "name": "mean",
+          "rmse": 0.5016533208907092,
+          "mae": 0.3992621591126741,
+          "r2": -0.2676611274442393,
+          "accuracy_pct": 70.19258334554658,
+          "rows": 571
+        },
+        "satellite_model": {
+          "name": "Ridge a=100",
+          "feature_set": "core",
+          "rmse": 0.3983643754594179,
+          "mae": 0.29608214615592227,
+          "r2": 0.20061355918663448,
+          "accuracy_pct": 74.99220743935945,
+          "rows": 571
+        }
+      }
+    }
+  }
+}
