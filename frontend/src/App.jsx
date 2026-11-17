@@ -4,7 +4,7 @@ import Overview from "./Overview.jsx";
 import District from "./District.jsx";
 import Accuracy from "./Accuracy.jsx";
 
-const TABS = ["Overview", "District", "Accuracy"];
+const TABS = ["Overview", "District"];
 
 export default function App() {
   const meta = useAsync(() => api.meta(), []);
